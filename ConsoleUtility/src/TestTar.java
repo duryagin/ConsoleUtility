@@ -15,11 +15,10 @@ class TestTar {
 	@Test
 	void out() throws IOException {
 		
-		String[] inputPaths = {"C:\\workspace\\ConsoleUtility\\src\\input\\i.txt",
-				"C:\\workspace\\ConsoleUtility\\src\\input\\n.txt",
-				"C:\\workspace\\ConsoleUtility\\src\\input\\put.txt"};
-		
-		String output = "C:\\workspace\\ConsoleUtility\\src\\output\\output.txt";
+		String[] inputPaths = {"C:\\repo\\ConsoleUtility\\src\\input\\i.txt",
+				"C:\\repo\\ConsoleUtility\\src\\input\\n.txt",
+				"C:\\repo\\ConsoleUtility\\src\\input\\put.txt"};
+		String output = "C:\\repo\\ConsoleUtility\\src\\output\\output.txt";
 		
 		Tar.out(inputPaths, output);
 		
@@ -27,7 +26,6 @@ class TestTar {
 		InputStreamReader inputStreamReader =
 				new InputStreamReader(inputStream,Charset.forName("utf-8"));
 		BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-		
 		
 		for (int i = 0; i < inputPaths.length; i++) {
 			
@@ -43,20 +41,16 @@ class TestTar {
 				assertEquals(str, str1);
 				
 			}
-			
 			bufReader.close();
-			
 		}
-		
 		bufferedReader.close();
-		
 	}
 	
 	
 	@Test
 	void u() throws IOException {
 		
-		String input = "C:\\workspace\\ConsoleUtility\\src\\input\\input.txt";
+		String input = "C:\\repo\\ConsoleUtility\\src\\input\\input.txt";
 		
 		File inputFile = new File(input);
 		String inputPath = inputFile.getAbsolutePath();
@@ -82,13 +76,8 @@ class TestTar {
 				assertEquals(str, str1);
 				
 			}
-			
-			bufReader.close();
-			
+			bufReader.close();	
 		}
-		
 		bufferedReader.close();
-		
 	}
-	
 }

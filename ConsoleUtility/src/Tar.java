@@ -28,16 +28,12 @@ public class Tar {
 				output.println(str);
 				
 			}
-			
 			bufferedReader.close();
-			
 		}
-		
 		output.close();
-		
 	}
 	
-	
+
 	public static void u(String inputPath) throws IOException {
 		
 		File inputFile = new File(inputPath);
@@ -60,13 +56,9 @@ public class Tar {
 				
 				output.println(str);
 				
-			}
-			
+			}	
 			bufferedReader.close();
-			output.close();
-			
-		}
-		
+			output.close();	
+		}	
 	}
-	
 }
