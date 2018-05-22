@@ -15,11 +15,11 @@ class TestTar {
 	@Test
 	void out() throws IOException {
 		
-		String[] inputPaths = {"C:\\repo\\ConsoleUtility\\src\\input\\i.txt",
-				"C:\\repo\\ConsoleUtility\\src\\input\\n.txt",
-				"C:\\repo\\ConsoleUtility\\src\\input\\put.txt"};
+		String[] inputPaths = {"src/input/i.txt",
+				"src/input/n.txt",
+				"src/input/put.txt"};
 		String[] names = {"i.txt", "n.txt", "put.txt"};
-		String output = "C:\\repo\\ConsoleUtility\\src\\output\\output.txt";
+		String output = "src/output/output.txt";
 		
 		Tar.out(inputPaths, output);
 		
@@ -54,11 +54,11 @@ class TestTar {
 	@Test
 	void u() throws IOException {
 		
-		String input = "C:\\repo\\ConsoleUtility\\src\\output\\output.txt";
+		String input = "src/output/output.txt";
 		String[] names = {"i.txt", "n.txt", "put.txt"};
 		
 		File inputFile = new File(input);
-		String inputPath = inputFile.getParentFile().getAbsolutePath() + "\\";
+		String inputPath = inputFile.getParentFile().getPath() + "\\";
 		
 		Tar.u(input);
 		
