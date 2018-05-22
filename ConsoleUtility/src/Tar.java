@@ -17,6 +17,9 @@ public class Tar {
 		
 		for (String inputPath : inputPaths) {
 			
+			File file = new File(inputPath);
+			output.println(file.getName());
+			
 			InputStream inputStream = new FileInputStream(inputPath);
 			InputStreamReader inputStreamReader =
 					new InputStreamReader(inputStream,Charset.forName("utf-8"));
@@ -45,7 +48,12 @@ public class Tar {
 		
 		while(true) {
 			
-			String outputPath = inputFile.getAbsolutePath();
+			String name = bufferedReader.readLine();
+			if (name == null) {
+				break;
+			}
+			
+			String outputPath = inputFile.getParentFile().getAbsolutePath() + "\\" + name.substring(5);
 			
 			File outputFile = new File(outputPath);
 			outputFile.createNewFile();
@@ -57,7 +65,6 @@ public class Tar {
 				output.println(str);
 				
 			}	
-			bufferedReader.close();
 			output.close();	
 		}	
 	}
