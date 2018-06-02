@@ -10,14 +10,14 @@ import java.nio.charset.Charset;
 
 import org.junit.jupiter.api.Test;
 
-/* ������� ��������� out - ��������� ��������� �����;
- * ����� ��������� u, �������� ���������� ����������
- * ���� �� ��������� ��������������
+/* сначала запускаем out - соединяем текстовые файлы;
+ * затем запускаем u, разбивая соединённый текст на
+ * несколько первоначальных
  */
 class TestTar {
 
 	@Test
-	void out() throws IOException { // ��������� ������� �����
+	void out() throws IOException { // соединяем заданные файлы
 		
 		String[] inputPaths = {"src/inputAndOutput/i.txt",
 				"src/inputAndOutput/n.txt",
@@ -60,7 +60,7 @@ class TestTar {
 	
 	
 	@Test
-	void u() throws IOException { // ��������� ������� ����, ���������� � out
+	void u() throws IOException { // разбиваем входной файл, полученный в out
 		
 		String input = "src/inputAndOutput/output.txt";
 		String[] names = {"i.txt", "n.txt", "put.txt"};
