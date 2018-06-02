@@ -10,16 +10,20 @@ import java.nio.charset.Charset;
 
 import org.junit.jupiter.api.Test;
 
+/* сначала запускаем out - соединяем текстовые файлы;
+ * затем запускаем u, разбивая полученный соединённый
+ * файл на несколько первоначальных
+ */
 class TestTar {
 
 	@Test
-	void out() throws IOException {
+	void out() throws IOException { // соединяем входные файлы
 		
-		String[] inputPaths = {"src/input/i.txt",
-				"src/input/n.txt",
-				"src/input/put.txt"};
+		String[] inputPaths = {"src/inputAndOutput/i.txt",
+				"src/inputAndOutput/n.txt",
+				"src/inputAndOutput/put.txt"};
 		String[] names = {"i.txt", "n.txt", "put.txt"};
-		String output = "src/output/output.txt";
+		String output = "src/inputAndOutput/output.txt";
 		
 		Tar.out(inputPaths, output);
 		
@@ -28,6 +32,8 @@ class TestTar {
 				new InputStreamReader(inputStream,Charset.forName("utf-8"));
 		BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 		
+		String str, str1;
+		
 		for (int i = 0; i < inputPaths.length; i++) {
 			
 			InputStream inStr = new FileInputStream(inputPaths[i]);
@@ -35,10 +41,12 @@ class TestTar {
 					new InputStreamReader(inStr,Charset.forName("utf-8"));
 			BufferedReader bufReader = new BufferedReader(inStrReader);
 			
-			String str = bufferedReader.readLine();
+			str = bufferedReader.readLine();
+			assertEquals(str, "fileName");
+			
+			str = bufferedReader.readLine();
 			assertEquals(str, names[i]);
 			
-			String str1;
 			while ((str1 = bufReader.readLine()) != null) {
 				
 				str = bufferedReader.readLine();
@@ -52,13 +60,13 @@ class TestTar {
 	
 	
 	@Test
-	void u() throws IOException {
+	void u() throws IOException { // разбиваем входной файл, полученный в out
 		
-		String input = "src/output/output.txt";
+		String input = "src/inputAndOutput/output.txt";
 		String[] names = {"i.txt", "n.txt", "put.txt"};
 		
 		File inputFile = new File(input);
-		String inputPath = inputFile.getParentFile().getPath() + "\\";
+		String inputPath = inputFile.getParentFile().getPath() + "/";
 		
 		Tar.u(input);
 		
@@ -67,18 +75,20 @@ class TestTar {
 				new InputStreamReader(inputStream,Charset.forName("utf-8"));
 		BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 		
-		String str = bufferedReader.readLine();
-		String str1;
+		String str, str1;
 		
 		int count = 0;
 		
-		while (str != null) {
+		while ((str = bufferedReader.readLine()) != null) {
 			
 			InputStream inStr = new FileInputStream(inputPath + names[count]);
 			InputStreamReader inStrReader =
 					new InputStreamReader(inStr,Charset.forName("utf-8"));
 			BufferedReader bufReader = new BufferedReader(inStrReader);
 			
+			assertEquals(str, "fileName");
+			
+			str = bufferedReader.readLine();
 			assertEquals(str, names[count]);
 			
 			while ((str1 = bufReader.readLine()) != null) {
