@@ -19,7 +19,7 @@ public class Tar {
 			
 			File file = new File(inputPath);
 			
-			output.println("fileName");
+			output.println("b1ur4ya0mg6lo2yu0ne1bo8kroet");
 			output.println(file.getName());
 			
 			InputStream inputStream = new FileInputStream(inputPath);
@@ -49,7 +49,7 @@ public class Tar {
 		BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 		
 		String string = bufferedReader.readLine();
-		if (!string.contains("fileName")) {
+		if (!string.contains("b1ur4ya0mg6lo2yu0ne1bo8kroet")) {
 			return;
 		}
 		
@@ -70,7 +70,7 @@ public class Tar {
 			
 			while ((str = bufferedReader.readLine()) != null) {
 				
-				if (str.contains("fileName")) {
+				if (str.contains("b1ur4ya0mg6lo2yu0ne1bo8kroet")) {
 					break;
 				}
 				

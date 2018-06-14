@@ -42,7 +42,7 @@ class TestTar {
 			BufferedReader bufReader = new BufferedReader(inStrReader);
 			
 			str = bufferedReader.readLine();
-			assertEquals(str, "fileName");
+			assertEquals(str, "b1ur4ya0mg6lo2yu0ne1bo8kroet");
 			
 			str = bufferedReader.readLine();
 			assertEquals(str, names[i]);
@@ -86,7 +86,7 @@ class TestTar {
 					new InputStreamReader(inStr,Charset.forName("utf-8"));
 			BufferedReader bufReader = new BufferedReader(inStrReader);
 			
-			assertEquals(str, "fileName");
+			assertEquals(str, "b1ur4ya0mg6lo2yu0ne1bo8kroet");
 			
 			str = bufferedReader.readLine();
 			assertEquals(str, names[count]);
